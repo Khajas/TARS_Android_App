@@ -108,8 +108,8 @@ public class MainActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(message)) {
                     return;
                 }
-                sendMessage(message);
-                mimicOtherMessage(message);
+                sendMessage(message.trim());
+                mimicOtherMessage(message.trim());
 
                 mEditTextMessage.setText("");
             }
@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             Log.d("", " Res Message " + res);
-            ChatMessage chatMessage = new ChatMessage(new String(res), false, false);
+            ChatMessage chatMessage = new ChatMessage(new String("Genie:\n"+res), false, false);
             mAdapter.add(chatMessage);
             mRecyclerView.scrollToPosition(mAdapter.getItemCount() - 1);
 
